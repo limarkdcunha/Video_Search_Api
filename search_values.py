@@ -70,7 +70,6 @@ def results(name):
     #Object of the class Trie
     t = Trie()
 
-
     #Insertion of words from into trie from names_list
     for i in range(n_len):
         t.insert(names_list[i])
@@ -80,5 +79,5 @@ def results(name):
     if(final_list == 0):
         return 'No Results Found'
     else:
-        final_values = { i : final_list[i]  for i in range(len(final_list)) }
-        return final_values
+        final_values = pd.DataFrame(final_list,columns=['VideoName'])
+        return final_values.to_dict('records')
